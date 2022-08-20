@@ -1,8 +1,8 @@
 ## Use case - assuming we have all the items required
-1. Pahale bhagwan ko pranam karo aur "om ganeshay namah" japo
+1. Pahale bhagwan ko pranam karo aur "om ganeshay namah" japo (Bhagwan ko Pranam)
 2. Ghanti bajaiye
 3. Pooja ki thali me swastik banao kumkum aur tel milakar
-4. Diya baati lijiye aur use diya me rakhiye aur diye me tel daaliya, baati aache se bhing jaae
+4. Diya baati lijiye aur use diya me rakhiye aur diye me tel daaliya, baati aache se bhing jaae (Diya taiyari)
 5. thaali me haldi aur kumkum rakh lijiye tika lagane ke liye
 6. Thaali me 3 kapoor rakhiye
 7. Ek dusari thaali me dhule hue phool rakhiye
@@ -19,4 +19,4 @@
 18. Bhagvan ko haath se aarti dikhaiye
 19. Ab aap sabhi upastit logo ko aarti dikhaiye aur khud bhi aarti lijiye
 20. Ab sabhi ko prashaad dijiye aur khud bhi prashad grahan kijiye
-21. Bhagavn ko dil se pranam kijiye aur apne se bado ka ashirvad lijiye
+21. Bhagavn ko dil se pranam kijiye aur apne se bado ka ashirvad lijiye (Samapan)

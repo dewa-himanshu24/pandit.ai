@@ -3,6 +3,7 @@
 - A Bhakt needs to register and login before using any of the features
 - Bhakt can start a pooja from the UI
 - Bhakt will be shown each steps on the UI and upon completion Bhakt needs to hit right arrow to move to next steps
+## Upcoming feature
 - More TBA
 
 # Keywords
