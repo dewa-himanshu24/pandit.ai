@@ -17,3 +17,4 @@ https://pandit-ai.vercel.app/
 - DB - Postgres
 - ORM - Prisma
 - Deployment - Vercel (move to AWS in future)
+- CSS - Tailwind Template - https://github.com/TailGrids/play-tailwind, https://tailwindcss.com/docs/guides/nextjs
