@@ -8,3 +8,9 @@
 
 # Keywords
 - Bhakt - A person who is performing pooja vidhi
+
+# Tech Stack
+- NextJS + Typescript
+- DB - Postgres
+- ORM - Prisma
+- Deployment - Glitch (move to AWS in future)
