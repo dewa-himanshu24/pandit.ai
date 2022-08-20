@@ -1,6 +1,9 @@
 # Pandit.AI
-- Dictates pooja steps
-    - It waits for the feedback before dictating next step
-- It will use Hindi language to display and dicatate pooja steps 1 by 1
-- It will listen for words such as "ho gaya" to move to next step of pooja
-- It will also have ability to play bhakti geet
+- Bhakt can use pooja vidhi from templates
+- A Bhakt needs to register and login before using any of the features
+- Bhakt can start a pooja from the UI
+- Bhakt will be shown each steps on the UI and upon completion Bhakt needs to hit right arrow to move to next steps
+- More TBA
+
+# Keywords
+- Bhakt - A person who is performing pooja vidhi
