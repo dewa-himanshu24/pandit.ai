@@ -1,3 +1,6 @@
+# Checkout live on
+https://pandit-ai.vercel.app/
+
 # Pandit.AI
 - Bhakt can use pooja vidhi from templates
 - A Bhakt needs to register and login before using any of the features
@@ -13,4 +16,4 @@
 - NextJS + Typescript
 - DB - Postgres
 - ORM - Prisma
-- Deployment - Glitch (move to AWS in future)
+- Deployment - Vercel (move to AWS in future)
