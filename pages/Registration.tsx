@@ -2,11 +2,12 @@ import React from 'react'
 
 import Link from 'next/link'
 import Navbar from './Navbar'
+import Button from './components/UI/Button'
 
 const Registration = () => {
   return (
     <>
-      <Navbar />
+      <Navbar isLoggedIn={false} />
       <section className="bg-[#F4F7FF] py-14 lg:py-20">
         <div className="container">
           <div className="-mx-4 flex flex-wrap">
@@ -42,15 +43,11 @@ const Registration = () => {
                       className="bordder-[#E9EDF4] w-full rounded-md border bg-[#FCFDFE] py-3 px-5 text-base text-body-color placeholder-[#ACB6BE] outline-none transition focus:border-primary focus-visible:shadow-none"
                     />
                   </div>
-                  <div className="mb-10">
-                    <input
-                      type="submit"
-                      value="Sign Up"
-                      className="bordder-primary w-full cursor-pointer rounded-md border bg-primary py-3 px-5 text-base text-white transition duration-300 ease-in-out hover:shadow-md"
-                    />
-                  </div>
+                  <Button value="Sign Up" classes={undefined} />
                 </form>
-                <p className="mb-6 text-base text-[#adadad]">OR</p>
+                <p className="mb-6 text-base text-[#adadad]">
+                  <br />
+                  OR</p>
 
                 <p className="text-base text-[#adadad]">
                   Already have an account? <u><Link href="/Login" className="text-primary hover:underline">
@@ -63,7 +60,6 @@ const Registration = () => {
         </div>
       </section>
     </>
-
   )
 }
 
