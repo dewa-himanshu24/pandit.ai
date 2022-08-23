@@ -3,7 +3,7 @@ import React, { Fragment } from 'react'
 import Navbar from './Navbar'
 import PoojaList from './PoojaList'
 
-const HomePage = (props: { name: string | undefined }) => {
+const HomePage = (props: { name: string }) => {
   return (
     <Fragment>
       <Navbar isLoggedIn={true} />

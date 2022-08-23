@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Button = (props: { classes: string | undefined; value: string | undefined }) => {
+const Button = (props: { classes: string ; value: string }) => {
   return (
     <div className={props.classes}>
       <input
