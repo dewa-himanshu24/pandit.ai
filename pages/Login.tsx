@@ -2,11 +2,12 @@ import React from 'react'
 
 import Link from 'next/link'
 import Navbar from './Navbar'
+import Button from './components/UI/Button'
 
 const Login = () => {
   return (
     <>
-      <Navbar />
+      <Navbar isLoggedIn={false} />
       <section className="bg-[#F4F7FF] py-14 lg:py-20">
         <div className="container">
           <div className="-mx-4 flex flex-wrap">
@@ -35,20 +36,14 @@ const Login = () => {
                       className="bordder-[#E9EDF4] w-full rounded-md border bg-[#FCFDFE] py-3 px-5 text-base text-body-color placeholder-[#ACB6BE] outline-none transition focus:border-primary focus-visible:shadow-none"
                     />
                   </div>
-                  <div className="mb-10">
-                    <input
-                      type="submit"
-                      value="Sign In"
-                      className="bordder-primary w-full cursor-pointer rounded-md border bg-primary py-3 px-5 text-base text-white transition duration-300 ease-in-out hover:shadow-md"
-                    />
-                  </div>
+                  <Button value="Sign In" classes="" />
                 </form>
-                <a
-                  href="javascript:void(0)"
+                <p
                   className="mb-2 inline-block text-base text-[#adadad] hover:text-primary"
                 >
+                  <br />
                   OR
-                </a>
+                </p>
                 <p className="text-base text-[#adadad]">
                   Click here to create a <u><Link href="/Registration" className="text-primary hover:underline">
                     new account
