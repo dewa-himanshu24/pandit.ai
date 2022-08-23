@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Pooja = (props: { image: string | undefined; name: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | React.ReactFragment | React.ReactPortal | null | undefined }) => {
+const Pooja = (props: { image: string | undefined; name: string | undefined }) => {
   return (
     <div className="w-full px-4 md:w-1/2 lg:w-1/3">
       <div className="wow fadeInUp group mb-10" data-wow-delay=".15s">

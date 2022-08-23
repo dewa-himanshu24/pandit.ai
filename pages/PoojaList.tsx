@@ -52,7 +52,6 @@ const DUMMY_POOJAS = [
 const PoojaList = () => {
   const poojaList = DUMMY_POOJAS.map((pooja) => (
     <Pooja
-      // id={pooja.id}
       key={pooja.id}
       name={pooja.name}
       image={pooja.image}

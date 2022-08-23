@@ -3,7 +3,7 @@ import React, { Fragment } from 'react'
 import Navbar from './Navbar'
 import PoojaList from './PoojaList'
 
-const HomePage = () => {
+const HomePage = (props: { name: string | undefined }) => {
   return (
     <Fragment>
       <Navbar isLoggedIn={true} />
@@ -14,7 +14,7 @@ const HomePage = () => {
           <div className="-mx-4 flex flex-wrap items-center">
             <div className="w-full px-4">
               <div className="text-center">
-                <h1 className="text-4xl font-semibold text-black">Welcome Jainendra please select a pooja to start</h1>
+                <h1 className="text-4xl font-semibold text-black">Welcome {props.name} please select a pooja to start</h1>
               </div>
             </div>
           </div>

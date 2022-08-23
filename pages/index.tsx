@@ -7,11 +7,13 @@ import {useRouter} from "next/router";
 const Home: NextPage = () => {
   const { query } = useRouter();
   const isLoggedIn = query.isLoggedIn == 'true';
+  
+  const name = "Jainendra"
 
   return (
     <Fragment>
       {!isLoggedIn && <Login />}
-      {isLoggedIn && <HomePage />}
+      {isLoggedIn && <HomePage name={name} />}
     </Fragment>
   )
 }
