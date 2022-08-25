@@ -3,7 +3,6 @@ import { Fragment } from 'react'
 import Login from './Login'
 import HomePage from './HomePage'
 import {useRouter} from "next/router";
-import PoojaPage from './PoojaHomePage';
 
 const Home: NextPage = () => {
   const { query } = useRouter();

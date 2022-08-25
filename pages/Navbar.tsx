@@ -1,7 +1,7 @@
-import React, { useState } from 'react'
+
 import Button from './components/UI/Button'
 
-const Navbar = (props: {isLoggedIn: Boolean}) => {
+const Navbar = (props: { isLoggedIn: Boolean }) => {
 
   return (
     <div
@@ -11,7 +11,7 @@ const Navbar = (props: {isLoggedIn: Boolean}) => {
         <div className="relative -mx-4 flex items-center justify-between">
           <div className="w-60 max-w-full px-4">
             <a href="index.html" className="navbar-logo block w-full py-5">
-              <img src="assets/images/Pandit_AI.png" alt="" />
+              <img src="/assets/images/Pandit_AI.png" alt="" />
             </a>
           </div>
           {props.isLoggedIn && <Button classes='md-10 px-4' value="Logout" />}

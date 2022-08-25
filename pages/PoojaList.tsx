@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import Pooja from './PoojaCard'
 
 import { DUMMY_POOJAS } from '../public/data'
@@ -15,7 +15,9 @@ const PoojaList = () => {
   ))
 
   return (
-    <>{poojaList}</>
+    <Fragment>
+      {poojaList}
+    </Fragment>
   )
 }
 
