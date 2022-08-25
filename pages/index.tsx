@@ -1,9 +1,9 @@
 import type { NextPage } from 'next'
 import { Fragment } from 'react'
 import Login from './Login'
-// import HomePage from './HomePage'
+import HomePage from './HomePage'
 import {useRouter} from "next/router";
-import PoojaPage from './PoojaPage';
+import PoojaPage from './PoojaHomePage';
 
 const Home: NextPage = () => {
   const { query } = useRouter();
@@ -14,8 +14,7 @@ const Home: NextPage = () => {
   return (
     <Fragment>
       {!isLoggedIn && <Login />}
-      {/* {isLoggedIn && <HomePage name={name} />} */}
-      {isLoggedIn && <PoojaPage />}
+      {isLoggedIn && <HomePage name={name} />}
     </Fragment>
   )
 }

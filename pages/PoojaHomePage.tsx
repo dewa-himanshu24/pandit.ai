@@ -25,10 +25,10 @@ const PoojaPage = (props: { name: string ; description: string ; }) => {
                     <h2
                       className="mb-6 text-center text-3xl font-bold text-dark sm:text-4xl sm:leading-snug 2xl:text-[40px]"
                     >
-                      Daily Aarti {props.name}
+                      {props.name}
                     </h2>
                     <p className="mb-9 text-center leading-relaxed text-body-color">
-                      Pooja Vidhi for ghar mae daily ki aarti.{props.description}
+                      {props.description}
                     </p>
                     <Button classes="" value="Aarti Shuru Karen" /> 
                   </div>
