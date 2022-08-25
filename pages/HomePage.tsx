@@ -20,11 +20,9 @@ const HomePage = (props: { name: string }) => {
           </div>
         </div>
       </div>
-
       <section className="pt-20 pb-10 lg:pt-[120px] lg:pb-20">
         <div className="container">
           <div className="-mx-4 flex flex-wrap">
-
             <PoojaList />
           </div>
         </div>
