@@ -1,1 +1,0 @@
-import DUMMY_POOJAS from "../../components/data";

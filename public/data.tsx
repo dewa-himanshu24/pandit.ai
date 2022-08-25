@@ -2,7 +2,7 @@ type tDUMMY_POOJAS = {
   [key: string]: any
 }
 
-const DUMMY_POOJAS : tDUMMY_POOJAS = {
+export const DUMMY_POOJAS : tDUMMY_POOJAS = {
   "p1": {
     id: "p1",
     name: "Daily Aarti",
@@ -58,4 +58,4 @@ const DUMMY_POOJAS : tDUMMY_POOJAS = {
     description: "Pooja vidhi for ghar mae daily ki aarti"
   },
 };
-export default DUMMY_POOJAS;
+

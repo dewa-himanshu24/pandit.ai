@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react'
 import { useRouter } from 'next/router'
 import Button from '../components/UI/Button';
-import DUMMY_POOJAS from '../components/data';
+import { DUMMY_POOJAS } from '../../public/data';
 
 import Navbar from '../Navbar';
 
