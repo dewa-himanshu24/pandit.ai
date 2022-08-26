@@ -1,4 +1,5 @@
 
+import Link from 'next/link'
 import Button from './components/UI/Button'
 
 const Navbar = (props: { isLoggedIn: Boolean }) => {
@@ -10,9 +11,9 @@ const Navbar = (props: { isLoggedIn: Boolean }) => {
       <div className="container">
         <div className="relative -mx-4 flex items-center justify-between">
           <div className="w-60 max-w-full px-4">
-            <a href="index.html" className="navbar-logo block w-full py-5">
+            <Link href="/HomePage" className="navbar-logo block w-full py-5">
               <img src="/assets/images/Pandit_AI.png" alt="" />
-            </a>
+            </Link>
           </div>
           {props.isLoggedIn && <Button classes='md-10 px-4' value="Logout" />}
         </div>
