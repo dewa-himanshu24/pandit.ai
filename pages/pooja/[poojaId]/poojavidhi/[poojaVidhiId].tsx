@@ -48,7 +48,7 @@ const PoojaVidhiPage = (props: {
                 >
                 <div className="absolute text-center top-0 right-0 px-2 cursor-pointer" onClick={handleCloseBtnClick}><p className="py-2">Aarti Samapt Karein</p></div>
 
-                  <div className="basis-1/10  py-12 px-7" onClick={handlePreviousClick}>
+                  <div className="basis-1/10  py-12 px-7 cursor-pointer" onClick={handlePreviousClick}>
                     <img src={props.vidhi?.id === 1 ? "/assets/images/left_angle_circle_icon_149919.png" : "/assets/images/left_arrow_angle_in_cular_icon_193329.png"} alt="left-pointing-arrow" />
                   </div>
 
@@ -77,10 +77,9 @@ const PoojaVidhiPage = (props: {
                     {props.vidhi?.id === props.totalVidhi ? <div onClick={handleCloseBtnClick}><Button classes="" value="Aarti Samapt Karein"/></div> : null}
                   </div>
 
-                  <div className="basis-1/10 justify-end py-12 px-7" onClick={handleNextClick}>
+                  <div className="basis-1/10 justify-end py-12 px-7 cursor-pointer" onClick={handleNextClick}>
                     <img src={props.vidhi?.id === props.totalVidhi ? "/assets/images/right_angle_circle_icon_149877.png" : "/assets/images/right_arrow_angle_in_cular_icon_193348.png"} alt="left-pointing-arrow" />
                   </div>
-
                 </div>
               </div>
             </div>
