@@ -3,9 +3,10 @@ import Button from '../components/UI/Button';
 import { DUMMY_POOJAS } from '../../public/data';
 
 import Navbar from '../Navbar';
+import Link from 'next/link';
 
 
-const PoojaPage = (props: { name: string ; description: string ; }) => {
+const PoojaPage = (props: { id: string ; name: string ; description: string ; }) => {
 
   return (
 
@@ -33,7 +34,7 @@ const PoojaPage = (props: { name: string ; description: string ; }) => {
                     <p className="mb-9 text-center leading-relaxed text-body-color">
                       {props.description}
                     </p>
-                    <Button classes="" value="Aarti Shuru Karen" /> 
+                    <Link href={`/pooja/${props.id}/poojavidhi/1`}><a><Button classes="" value="Aarti Shuru Karen" /></a></Link>
                   </div>
                 </div>
               </div>
@@ -51,6 +52,7 @@ export async function getStaticProps(context: {params: { poojaId: string ; };}) 
 
   return {
     props: {
+      id: poojaDetails.id,
       name: poojaDetails.name,
       description: poojaDetails.description
     },
