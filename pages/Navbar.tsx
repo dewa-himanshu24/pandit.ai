@@ -11,7 +11,7 @@ const Navbar = (props: { isLoggedIn: Boolean }) => {
       <div className="container">
         <div className="relative -mx-4 flex items-center justify-between">
           <div className="w-60 max-w-full px-4">
-            <Link href="/HomePage" className="navbar-logo block w-full py-5">
+            <Link href={props.isLoggedIn ? "/HomePage" : "/Login"} className="navbar-logo block w-full py-5">
               <img src="/assets/images/Pandit_AI.png" alt="" />
             </Link>
           </div>
