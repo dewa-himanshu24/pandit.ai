@@ -4,6 +4,7 @@ import { DUMMY_POOJAS } from '../../../../public/data';
 import Navbar from '../../../Navbar'
 
 import { useRouter } from 'next/router'
+import Button from '../../../components/UI/Button';
 
 const PoojaVidhiPage = (props: {
   totalVidhi: Number;
@@ -26,6 +27,11 @@ const PoojaVidhiPage = (props: {
     }
   }
 
+  const handleCloseBtnClick = () => {
+    let url = "/HomePage";
+    router.push(url)
+  }
+
   return (
     <Fragment>
       <Navbar isLoggedIn={true} />
@@ -38,10 +44,10 @@ const PoojaVidhiPage = (props: {
             <div className="-mx-4 flex flex-wrap">
               <div className="w-full px-4">
                 <div
-                  className="items-center justify-center overflow-hidden border lg:flex"
+                  className="relative items-center justify-center overflow-hidden border lg:flex"
                 >
+                <div className="absolute text-center top-0 right-0 px-2 cursor-pointer" onClick={handleCloseBtnClick}><p className="py-2">Aarti Samapt Karein</p></div>
 
-                  
                   <div className="basis-1/10  py-12 px-7" onClick={handlePreviousClick}>
                     <img src={props.vidhi?.id === 1 ? "/assets/images/left_angle_circle_icon_149919.png" : "/assets/images/left_arrow_angle_in_cular_icon_193329.png"} alt="left-pointing-arrow" />
                   </div>
@@ -67,9 +73,11 @@ const PoojaVidhiPage = (props: {
                     <p className="mb-9 text-center leading-relaxed text-body-color">
                       {props.vidhi?.description}
                     </p>
+
+                    {props.vidhi?.id === props.totalVidhi ? <div onClick={handleCloseBtnClick}><Button classes="" value="Aarti Samapt Karein"/></div> : null}
                   </div>
 
-                  <div className="basis-1/10  flex justify-end py-12 px-7" onClick={handleNextClick}>
+                  <div className="basis-1/10 justify-end py-12 px-7" onClick={handleNextClick}>
                     <img src={props.vidhi?.id === props.totalVidhi ? "/assets/images/right_angle_circle_icon_149877.png" : "/assets/images/right_arrow_angle_in_cular_icon_193348.png"} alt="left-pointing-arrow" />
                   </div>
 
