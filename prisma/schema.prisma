@@ -13,6 +13,6 @@ datasource db {
 model User {
   id      Int      @id @default(autoincrement())
   email   String   @unique @db.VarChar(255)
-  full_name        String? @db.VarChar(255)
-  password_hash   String? @db.VarChar(255)
+  full_name        String @db.VarChar(255)
+  password_hash   String @db.VarChar(255)
 }
