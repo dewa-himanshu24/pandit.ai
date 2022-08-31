@@ -13,10 +13,10 @@ export default async function handler(
   res: NextApiResponse<Data>
 ) {
   if (req.method === 'GET') {
-    const user = await prisma.user.findFirst();
+    const bhakt = await prisma.bhakt.findFirst();
     const userDetails = {
-      full_name: user?.full_name,
-      email: user?.email
+      full_name: bhakt?.full_name,
+      email: bhakt?.email
     }
     res.status(200).json(userDetails);
   }
