@@ -12,23 +12,28 @@ export default async function handler(
   res: NextApiResponse<Data>
 ) {
   if (req.method === 'POST') {
-    interface UserData {
+    interface BhaktData {
       full_name: string,
       password_hash: string,
       email: string
     }
-    const userData: UserData = {
-      full_name: req.body.full_name,
-      password_hash: req.body.password_hash,
-      email: req.body.email
+
+    const full_name = req.body.full_name.trim().length > 0 ? req.body.full_name.trim() : undefined;
+    const password_hash = req.body.password.trim()
+    const email = req.body.email.trim().length > 12 ? req.body.email.trim().toLowerCase() : undefined;
+
+    const bhaktData: BhaktData = {
+      full_name: full_name,
+      password_hash: password_hash,
+      email: email
     }
-    console.log(userData);
-    prisma.bhakt.create({data :userData})
+    console.log(bhaktData);
+    prisma.bhakt.create({data : bhaktData})
       .then(data => res.status(200).json({
         message: "Successfully registered"
       }))
       .catch(err => res.status(400).json({
-        message: "Error while creating bhakt"
+        message: "Something went wrong"
       }));
   }
 }
