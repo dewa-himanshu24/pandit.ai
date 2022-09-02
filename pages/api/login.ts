@@ -12,8 +12,7 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data>
 ) {
-  if (req.method === 'POST') {\
-
+  if (req.method === 'POST') {
     const password = req.body.password.trim()
     const email = req.body.email.trim().length > 12 ? req.body.email.trim().toLowerCase() : " ";
     
