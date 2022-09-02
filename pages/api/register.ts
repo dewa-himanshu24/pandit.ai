@@ -18,22 +18,28 @@ export default async function handler(
       email: string
     }
 
-    const full_name = req.body.full_name.trim().length > 0 ? req.body.full_name.trim() : undefined;
-    const password_hash = req.body.password.trim()
-    const email = req.body.email.trim().length > 12 ? req.body.email.trim().toLowerCase() : undefined;
+    const full_name = req.body.full_name.trim();
+    const password = req.body.password.trim();
+    const email = req.body.email.trim().toLowerCase();
 
+    if (email.length === 0 || full_name.length === 0 || password.length === 0) {
+      res.status(400).json({ message: "Enter valid input" });
+    }
     const bhaktData: BhaktData = {
       full_name: full_name,
-      password_hash: password_hash,
+      password_hash: password,
       email: email
     }
-    console.log(bhaktData);
-    prisma.bhakt.create({data : bhaktData})
+
+    prisma.bhakt.create({ data: bhaktData })
       .then(data => res.status(200).json({
         message: "Successfully registered"
       }))
-      .catch(err => res.status(400).json({
-        message: "Something went wrong"
-      }));
+      .catch((err) => {
+        console.log(err);
+        res.status(400).json({
+          message: "Something went wrong"
+        })
+      });
   }
 }
