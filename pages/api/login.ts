@@ -13,13 +13,13 @@ export default async function handler(
   res: NextApiResponse<Data>
 ) {
   if (req.method === 'POST') {
-    const password = req.body.password.trim()
-    const email = req.body.email.trim().length > 12 ? req.body.email.trim().toLowerCase() : " ";
-    
-    prisma.bhakt.findFirstOrThrow({ where: { email: email, password_hash: password } })
+    const password_hash = req.body.password.trim();
+    const email = req.body.email.trim().toLowerCase();
+
+    prisma.bhakt.findFirstOrThrow({ where: { email: email, password_hash: password_hash } })
       .then(data => res.status(200).json({
         message: "Successfully loggedin",
-        xBhaktToken: data?.id
+        xBhaktToken: data.id
       }))
       .catch(err => res.status(400).json({
         message: "Something went wrong",
