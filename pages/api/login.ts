@@ -1,6 +1,8 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 import { PrismaClient } from '@prisma/client'
 
+
+
 const prisma = new PrismaClient()
 
 type Data = {
@@ -12,6 +14,7 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data>
 ) {
+
   if (req.method === 'POST') {
     const password_hash = req.body.password.trim();
     const email = req.body.email.trim().toLowerCase();
