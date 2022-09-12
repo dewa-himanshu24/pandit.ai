@@ -22,11 +22,13 @@ export default async function handler(
     const full_name = req.body.full_name.trim();
     const password = req.body.password.trim();
     const email = req.body.email.trim().toLowerCase();
+    
+    const saltRounds = 10;
 
     if (email.length === 0 || full_name.length === 0 || password.length === 0) {
       res.status(400).json({ message: "Enter valid input" });
     }
-    const hashed_password = bcrypt.hash(password, 10).then((hashed_password: string) => {
+    const hashed_password = bcrypt.hash(password, saltRounds).then((hashed_password: string) => {
       console.log(`Hashed Password is ${hashed_password}`);
       const bhaktData: BhaktData = {
         full_name: full_name,

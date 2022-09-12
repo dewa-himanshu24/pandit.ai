@@ -8,7 +8,6 @@ const prisma = new PrismaClient()
 type Data = {
   message: string,
   xBhaktToken?: any
-  decoded?: any
 }
 
 export default async function handler(
@@ -27,7 +26,7 @@ export default async function handler(
               message: "Wrong Credential!",
             })
           }
-          const secret = "panditaijwttoken";
+          const secret = process.env.APP_AUTH_JWT_SECRET + "";
 
           const payload = {
             email: data.email,
@@ -35,12 +34,11 @@ export default async function handler(
           }
 
           const xBhaktToken = jwt.sign(payload, secret, {expiresIn: '1s'});
-          console.log(jwt.verify(xBhaktToken,secret));
+          console.log(`User ${data.id} successfully logged in`)
 
           res.status(200).json({
             message: "Successfully loggedin",
             xBhaktToken: xBhaktToken,
-            decoded: jwt.verify(xBhaktToken,secret)
           });
         }))
       .catch(err => res.status(400).json({
