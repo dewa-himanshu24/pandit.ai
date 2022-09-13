@@ -34,7 +34,7 @@ export default async function handler(
             id: data.id
           }
 
-          const xBhaktToken = jwt.sign(payload, secret, {expiresIn: '1s'});
+          const xBhaktToken = jwt.sign(payload, secret, {expiresIn: '7 days'});
           console.log(`User ${data.id} successfully logged in`)
 
           res.status(200).json({
