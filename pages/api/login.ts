@@ -25,6 +25,7 @@ export default async function handler(
             res.status(400).json({
               message: "Wrong Credential!",
             })
+            return;
           }
           const secret = process.env.APP_AUTH_JWT_SECRET + "";
 
