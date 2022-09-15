@@ -20,7 +20,7 @@ export default async function handler(
 
     prisma.bhakt.findFirstOrThrow({ where: { email: email } })
       .then(data =>
-        bcrypt.compare(password, data.password_hash).then((match) => {
+        bcrypt.compare(password, data.password_hash).then((match) => { 
           if (!match) {
             res.status(400).json({
               message: "Wrong Credential!",
@@ -34,7 +34,7 @@ export default async function handler(
             id: data.id
           }
 
-          const xBhaktToken = jwt.sign(payload, secret, {expiresIn: '1s'});
+          const xBhaktToken = jwt.sign(payload, secret, { expiresIn: '1 day' });
           console.log(`User ${data.id} successfully logged in`)
 
           res.status(200).json({
@@ -45,6 +45,8 @@ export default async function handler(
       .catch(err => res.status(400).json({
         message: "Something went wrong",
       }));
-
+  }
+  else {
+    res.status(400).json({ message: "API not responding" })
   }
 }
