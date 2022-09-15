@@ -1,5 +1,4 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
-import { PrismaClient } from '@prisma/client'
 import jwt from 'jsonwebtoken'
 
 const dummyPoojaList = {
@@ -52,8 +51,7 @@ const dummyPoojaList = {
       name: "Shiv Aarti",
       imageUrl: "https://i.ytimg.com/vi/MXDTEwxkU_I/maxresdefault.jpg"
     }
-  ],
-  message: ""
+  ]
 }
 
 
@@ -61,9 +59,8 @@ const secret = process.env.APP_AUTH_JWT_SECRET + "";
 
 
 type Data = {
-  message: string,
-  xBhaktToken?: any,
-  dummyPoojaList?: any
+  message?: string,
+  allPooja?: Array<{id:number; name: string; imageUrl: string}>
 }
 
 export default async function handler(
@@ -82,7 +79,6 @@ export default async function handler(
     }
   }
   else {
-    res.status(400).json({ message: "Some thing went wrong" });
-
+    res.status(400).json({ message: "HTTP method not supported!" });
   }
 }
