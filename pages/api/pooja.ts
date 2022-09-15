@@ -2,8 +2,6 @@ import type { NextApiRequest, NextApiResponse } from 'next'
 import { PrismaClient } from '@prisma/client'
 import jwt from 'jsonwebtoken'
 
-// import bcrypt from 'bcrypt'
-// import jwt from 'jsonwebtoken'
 const dummyPoojaList = {
   allPooja: [
     {
@@ -74,7 +72,6 @@ export default async function handler(
 ) {
   if (req.method === 'GET') {
     const xBhaktToken = req.headers['xbhakttoken'] + "";
-    console.log(xBhaktToken);
 
     try {
       jwt.verify(xBhaktToken, secret);
