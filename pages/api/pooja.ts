@@ -68,11 +68,12 @@ export default async function handler(
   res: NextApiResponse<Data>
 ) {
   if (req.method === 'GET') {
-    const xBhaktToken = req.headers['xbhakttoken'] + "";
+    const xBhaktToken = req.headers['x-bhakt-token'] + "";
 
     try {
       jwt.verify(xBhaktToken, secret);
       res.status(200).json(dummyPoojaList);
+
     } catch (err) {
       console.log(err);
       res.status(401).json({ message: "Error while authentication" })
