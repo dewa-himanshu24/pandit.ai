@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { getCookie, setCookie } from 'cookies-next';
+import { getCookie, setCookie, hasCookie } from 'cookies-next';
 import { useRouter } from 'next/router';
 
 import Link from 'next/link'
@@ -50,7 +50,7 @@ const Login = () => {
   // if cookie redirect to homepage.....
   useEffect(() => {
 
-    if (getCookie('xBhaktToken')) {
+    if (hasCookie('xBhaktToken')) {
       router.push('/HomePage');
     }
 
@@ -129,7 +129,3 @@ const Login = () => {
 }
 
 export default Login
-
-function setTokenCookie(token: any) {
-  throw new Error('Function not implemented.');
-}
