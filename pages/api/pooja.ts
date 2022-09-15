@@ -75,7 +75,8 @@ export default async function handler(
       res.status(200).json(dummyPoojaList);
 
     } catch (err) {
-      res.status(400).json({ message: "Page Not Found!" })
+      console.log(err);
+      res.status(400).json({ message: err+"" })
     }
   }
   else {
