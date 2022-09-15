@@ -60,7 +60,7 @@ const secret = process.env.APP_AUTH_JWT_SECRET + "";
 
 type Data = {
   message?: string,
-  allPooja?: Array<{id:number; name: string; imageUrl: string}>
+  allPooja?: Array<{ id: number; name: string; imageUrl: string }>
 }
 
 export default async function handler(
@@ -73,10 +73,9 @@ export default async function handler(
     try {
       jwt.verify(xBhaktToken, secret);
       res.status(200).json(dummyPoojaList);
-
     } catch (err) {
       console.log(err);
-      res.status(400).json({ message: err+"" })
+      res.status(401).json({ message: "Error while authentication" })
     }
   }
   else {
