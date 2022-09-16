@@ -1,9 +1,20 @@
-import React, { Fragment } from 'react'
+import { hasCookie } from 'cookies-next'
+import { useRouter } from 'next/router'
+import React, { Fragment, useEffect } from 'react'
 
 import Navbar from './Navbar'
 import PoojaList from './PoojaList'
 
 const HomePage = (props: { name: string }) => {
+  const router = useRouter();
+
+  useEffect(() => {
+    if (!hasCookie("xBhaktToken")) {
+      router.push('/Login')
+      return;
+    }
+  }, []);
+
   return (
     <Fragment>
       <Navbar isLoggedIn={true} />

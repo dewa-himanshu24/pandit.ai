@@ -1,4 +1,4 @@
-import { deleteCookie, getCookie } from 'cookies-next';
+import { deleteCookie, getCookie, hasCookie } from 'cookies-next';
 import { useRouter } from 'next/router';
 import React, { Fragment, useEffect, useState } from 'react'
 import Pooja from './PoojaCard'
@@ -23,7 +23,7 @@ const PoojaList = () => {
       console.log(responseJson);
 
       if (response.status === 200) {
-        const poojaData = responseJson["allPooja"].map((pooja: { id: number; name: string; imageUrl: string; description: string; } ) => (
+        const poojaData = responseJson["allPooja"].map((pooja: { id: number; name: string; imageUrl: string; description: string; }) => (
           <Pooja
             key={pooja.id}
             id={pooja.id}
@@ -42,7 +42,9 @@ const PoojaList = () => {
         alert(responseJson.message)
       }
     }
+
     getAllPooja();
+
   }, []);
 
 
