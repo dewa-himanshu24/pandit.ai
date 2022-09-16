@@ -1,9 +1,13 @@
-import { getCookie } from 'cookies-next';
+import { deleteCookie, getCookie } from 'cookies-next';
+import { useRouter } from 'next/router';
 import React, { Fragment, useEffect, useState } from 'react'
 import Pooja from './PoojaCard'
 
 const PoojaList = () => {
+  const router = useRouter();
+
   const [poojaList, setPoojaList] = useState([]);
+
   useEffect(() => {
     const getAllPooja = async () => {
       const xBhaktToken = getCookie("xBhaktToken") + "";
@@ -19,7 +23,7 @@ const PoojaList = () => {
       console.log(responseJson);
 
       if (response.status === 200) {
-        const poojaData = responseJson["allPooja"].map((pooja: { id: number; name: string; imageUrl: string; description: string }) => (
+        const poojaData = responseJson["allPooja"].map((pooja: { id: number; name: string; imageUrl: string; description: string; } ) => (
           <Pooja
             key={pooja.id}
             id={pooja.id}
@@ -29,6 +33,10 @@ const PoojaList = () => {
           />
         ))
         setPoojaList(poojaData);
+      }
+      else if (response.status === 401) {
+        deleteCookie('xBhaktToken')
+        router.push('/Login')
       }
       else {
         alert(responseJson.message)
