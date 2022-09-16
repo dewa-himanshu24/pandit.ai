@@ -22,7 +22,7 @@ export default async function handler(
     const full_name = req.body.full_name.trim();
     const password = req.body.password.trim();
     const email = req.body.email.trim().toLowerCase();
-    
+
     const saltRounds = 10;
 
     if (email.length === 0 || full_name.length === 0 || password.length === 0) {
@@ -35,7 +35,7 @@ export default async function handler(
         password_hash: hashed_password,
         email: email
       }
-  
+
       prisma.bhakt.create({ data: bhaktData })
         .then(data => res.status(200).json({
           message: "Successfully registered"
@@ -47,5 +47,7 @@ export default async function handler(
           })
         });
     });
+  } else {
+    res.status(400).json({ message: "HTTP method not supported!" });
   }
 }
