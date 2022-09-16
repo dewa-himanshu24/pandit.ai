@@ -3,7 +3,7 @@ import React from 'react'
 
 
 const Pooja = (props: {
-  id: string; imageUrl: string ; name: string; description: string; 
+  id: number; imageUrl: string ; name: string; description: string; 
 }) => {
   
 
