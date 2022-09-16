@@ -34,7 +34,7 @@ const PoojaPage = (props: { id: string ; name: string ; description: string ; })
                     <p className="mb-9 text-center leading-relaxed text-body-color">
                       {props.description}
                     </p>
-                    <Link href={`/pooja/${props.id}/poojavidhi/1`}><a><Button classes="" value="Aarti Shuru Karen" /></a></Link>
+                    <Link href={`/pooja/${props.id}/poojavidhi/1`}><a><Button classes="" value="Aarti Shuru Karen" onClickHandler={()=>{}} /></a></Link>
                   </div>
                 </div>
               </div>

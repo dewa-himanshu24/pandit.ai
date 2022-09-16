@@ -43,7 +43,7 @@ const Registration = () => {
                       className="bordder-[#E9EDF4] w-full rounded-md border bg-[#FCFDFE] py-3 px-5 text-base text-body-color placeholder-[#ACB6BE] outline-none transition focus:border-primary focus-visible:shadow-none"
                     />
                   </div>
-                  <Button value="Sign Up" classes="" />
+                  <Button value="Sign Up" classes="" onClickHandler={()=>{}} />
                 </form>
                 <p className="mb-6 text-base text-[#adadad]">
                   <br />
