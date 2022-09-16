@@ -1,7 +1,8 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 import { PrismaClient } from '@prisma/client'
 import bcrypt from 'bcrypt'
-import jwt from 'jsonwebtoken'
+import jwt, { JsonWebTokenError } from 'jsonwebtoken'
+import { PrismaClientInitializationError } from '@prisma/client/runtime'
 
 const prisma = new PrismaClient()
 
@@ -20,7 +21,7 @@ export default async function handler(
 
     prisma.bhakt.findFirstOrThrow({ where: { email: email } })
       .then(data =>
-        bcrypt.compare(password, data.password_hash).then((match) => { 
+        bcrypt.compare(password, data.password_hash).then((match) => {
           if (!match) {
             res.status(400).json({
               message: "Wrong Credential!",
@@ -31,7 +32,7 @@ export default async function handler(
 
           const payload = {
             email: data.email,
-            id: data.id
+            sub: data.id
           }
 
           const xBhaktToken = jwt.sign(payload, secret, { expiresIn: '1 day' });
@@ -42,9 +43,16 @@ export default async function handler(
             xBhaktToken: xBhaktToken,
           });
         }))
-      .catch(err => res.status(400).json({
-        message: "Something went wrong",
-      }));
+      .catch(err => {
+        console.log(err)
+        if(err instanceof PrismaClientInitializationError){
+          res.status(500).json({message: "Internal Server Error"});
+        } else if(err instanceof JsonWebTokenError) {
+          res.status(400).json({message: "Authentication Error"});
+        } else {
+          res.status(400).json({message: "Something went wrong"});
+        }
+      });
   }
   else {
     res.status(400).json({ message: "HTTP method not supported!" });

@@ -1,6 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 import { PrismaClient } from '@prisma/client'
-import jwt from 'jsonwebtoken'
+import jwt, { JsonWebTokenError } from 'jsonwebtoken'
+import { PrismaClientInitializationError } from '@prisma/client/runtime'
 
 const prisma = new PrismaClient()
 
@@ -15,25 +16,29 @@ export default async function handler(
   res: NextApiResponse<Data>
 ) {
   if (req.method === 'GET') {
-    const xBhaktToken = req.headers['x-bhakt-token']+"";
-    const secret = process.env.APP_AUTH_JWT_SECRET+""
+    const xBhaktToken = req.headers['x-bhakt-token'] + "";
+    const secret = process.env.APP_AUTH_JWT_SECRET + "";
     try {
       const decoded = jwt.verify(xBhaktToken, secret);
-      console.log(decoded);
-      const bhakt = await prisma.bhakt.findFirst({ where: { id: decoded.id } });
+      const bhakt = await prisma.bhakt.findFirst({ where: { id: Number(decoded.sub) } });
       const userDetails = {
         full_name: bhakt?.full_name,
         email: bhakt?.email
       }
       res.status(200).json(userDetails);
     } catch (err) {
-      console.log(err);
-      res.status(401).json({ message: "Error while authentication" });
+      console.log(err)
+      if (err instanceof PrismaClientInitializationError) {
+        res.status(405).json({ message: "Internal error" });
+      } else if (err instanceof JsonWebTokenError) {
+        res.status(401).json({ message: "Authentication Error" });
+      } else {
+        res.status(400).json({ message: "Something went wrong" });
+      }
     }
-  }
-  else {
+  } else {
     res.status(400).json({
-      message: "Something went wrong"
+      message: "HTTP method not supported!"
     })
   }
 }

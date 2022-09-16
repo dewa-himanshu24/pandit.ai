@@ -5,10 +5,11 @@ import React, { Fragment, useEffect, useState } from 'react'
 import Navbar from './Navbar'
 import PoojaList from './PoojaList'
 
-const HomePage = (props: { name: string }) => {
+const HomePage = () => {
   const router = useRouter();
 
   const [bhaktName, setBhaktName] = useState("")
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     const getBhaktData = async () => {
@@ -27,6 +28,7 @@ const HomePage = (props: { name: string }) => {
       if (response.status === 200) {
         const bhaktNameData = responseJson.full_name;
         console.log(bhaktNameData)
+        setLoading(false);
         setBhaktName(bhaktNameData);
       }
       else if (response.status === 401) {
@@ -43,6 +45,8 @@ const HomePage = (props: { name: string }) => {
       return;
     }
   }, []);
+
+  if(loading) return <h1>LOADING....</h1>
 
   return (
     <Fragment>

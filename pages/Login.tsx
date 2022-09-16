@@ -38,6 +38,7 @@ const Login = () => {
     if (response.status === 200) {
       setCookie('xBhaktToken', token, { maxAge: 60 * 60 * 24 })
       router.push('/HomePage');
+      return;
     }
     else {
       alert(responseJson.message)
@@ -52,6 +53,7 @@ const Login = () => {
 
     if (hasCookie('xBhaktToken')) {
       router.push('/HomePage');
+      return;
     }
 
   }, [])

@@ -1,19 +1,19 @@
 import type { NextPage } from 'next'
-import { Fragment } from 'react'
+import { Fragment, useEffect, useState } from 'react'
 import Login from './Login'
 import HomePage from './HomePage'
-import {useRouter} from "next/router";
+import { hasCookie } from 'cookies-next';
 
 const Home: NextPage = () => {
-  const { query } = useRouter();
-  const isLoggedIn = query.isLoggedIn == 'true';
-  
-  const name = "Jainendra"
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  useEffect( () =>{
+    setIsLoggedIn(hasCookie('xBhaktToken'));
+  }, []);
 
   return (
     <Fragment>
       {!isLoggedIn && <Login />}
-      {isLoggedIn && <HomePage name={name} />}
+      {isLoggedIn && <HomePage/>}
     </Fragment>
   )
 }
