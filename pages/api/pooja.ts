@@ -73,7 +73,6 @@ export default async function handler(
     try {
       jwt.verify(xBhaktToken, secret);
       res.status(200).json(dummyPoojaList);
-
     } catch (err) {
       console.log(err);
       res.status(401).json({ message: "Error while authentication" })
