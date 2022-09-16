@@ -74,7 +74,7 @@ const PoojaVidhiPage = (props: {
                       {props.vidhi?.description}
                     </p>
 
-                    {props.vidhi?.id === props.totalVidhi ? <div onClick={handleCloseBtnClick}><Button classes="" value="Aarti Samapt Karein"/></div> : null}
+                    {props.vidhi?.id === props.totalVidhi ? <div onClick={handleCloseBtnClick}><Button classes="" value="Aarti Samapt Karein" onClickHandler={()=>{}} /></div> : null}
                   </div>
 
                   <div className="basis-1/10 justify-end py-12 px-7 cursor-pointer" onClick={handleNextClick}>

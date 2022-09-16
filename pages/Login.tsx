@@ -108,7 +108,7 @@ const Login = () => {
                       value={enteredPassword}
                     />
                   </div>
-                  <Button value="Sign In" classes="" />
+                  <Button value="Sign In" classes="" onClickHandler={()=>{}} />
                 </form>
                 <p
                   className="mb-2 inline-block text-base text-[#adadad] hover:text-primary"
