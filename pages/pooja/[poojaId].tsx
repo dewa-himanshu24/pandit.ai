@@ -62,7 +62,7 @@ export async function getStaticProps(context: {params: { poojaId: string ; };}) 
 export async function getStaticPaths() {
   return {
     paths: [
-      "/pooja/p1","/pooja/p2"
+      "/pooja/1","/pooja/2"
     ],
     fallback: true,
   }

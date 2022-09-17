@@ -3,8 +3,8 @@ type tDUMMY_POOJAS = {
 }
 
 export const DUMMY_POOJAS : tDUMMY_POOJAS = {
-  "p1": {
-    id: "p1",
+  "1": {
+    id: "1",
     name: "Daily Aarti",
     imageUrl: "assets/images/blog/blog-02.jpg",
     description: "Pooja vidhi for ghar mae daily ki aarti",
@@ -29,8 +29,8 @@ export const DUMMY_POOJAS : tDUMMY_POOJAS = {
       ]
     }
   },
-  "p2": {
-    id: "p2",
+  "2": {
+    id: "2",
     name: "Shiv Aarti",
     imageUrl: "assets/images/blog/blog-02.jpg",
     description: "Pooja vidhi for ghar mae daily ki aarti",
@@ -55,8 +55,8 @@ export const DUMMY_POOJAS : tDUMMY_POOJAS = {
       ]
     }
   },
-  "p3": {
-    id: "p3",
+  "3": {
+    id: "3",
     name: "Vishnu Vandana",
     imageUrl: "assets/images/blog/blog-02.jpg",
     description: "Pooja vidhi for ghar mae daily ki aarti",
@@ -81,8 +81,8 @@ export const DUMMY_POOJAS : tDUMMY_POOJAS = {
       ]
     }
   },
-  "p4": {
-    id: "p4",
+  "4": {
+    id: "4",
     name: "Ganesha Aarti",
     imageUrl: "assets/images/blog/blog-02.jpg",
     description: "Pooja vidhi for ghar mae daily ki aarti",
@@ -107,8 +107,8 @@ export const DUMMY_POOJAS : tDUMMY_POOJAS = {
       ]
     }
   },
-  "p5": {
-    id: "p5",
+  "5": {
+    id: "5",
     name: "Maa Laxmi Aarti",
     imageUrl: "assets/images/blog/blog-02.jpg",
     description: "Pooja vidhi for ghar mae daily ki aarti",
@@ -133,8 +133,8 @@ export const DUMMY_POOJAS : tDUMMY_POOJAS = {
       ]
     }
   },
-  "p6": {
-    id: "p6",
+  "6": {
+    id: "6",
     name: "Grah Pravesh",
     imageUrl: "assets/images/blog/blog-02.jpg",
     description: "Pooja vidhi for ghar mae daily ki aarti",
@@ -159,8 +159,8 @@ export const DUMMY_POOJAS : tDUMMY_POOJAS = {
       ]
     }
   },
-  "p7": {
-    id: "p7",
+  "7": {
+    id: "7",
     name: "Diwali Pooja",
     imageUrl: "assets/images/blog/blog-02.jpg",
     description: "Pooja vidhi for ghar mae daily ki aarti",
@@ -185,8 +185,8 @@ export const DUMMY_POOJAS : tDUMMY_POOJAS = {
       ]
     }
   },
-  "p8": {
-    id: "p8",
+  "8": {
+    id: "8",
     name: "Ekadashi",
     imageUrl: "assets/images/blog/blog-02.jpg",
     description: "Pooja vidhi for ghar mae daily ki aarti",
@@ -211,8 +211,8 @@ export const DUMMY_POOJAS : tDUMMY_POOJAS = {
       ]
     }
   },
-  "p9": {
-    id: "p9",
+  "9": {
+    id: "9",
     name: "Janmashtami",
     imageUrl: "assets/images/blog/blog-02.jpg",
     description: "Pooja vidhi for ghar mae daily ki aarti",

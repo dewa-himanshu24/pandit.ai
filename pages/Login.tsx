@@ -117,7 +117,7 @@ const Login = () => {
                   OR
                 </p>
                 <p className="text-base text-[#adadad]">
-                  Click here to create a <u><Link href="/Registration" className="text-primary hover:underline">
+                  Click here to create a <u><Link href="/Register" className="text-primary hover:underline">
                     new account
                   </Link></u>
                 </p>
