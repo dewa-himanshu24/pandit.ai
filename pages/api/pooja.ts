@@ -74,7 +74,7 @@ export default async function handler(
     try {
       jwt.verify(xBhaktToken, secret);
       const allPooja = await prisma.pooja.findMany({});
-      const poojaList = {allPooja: allPooja}
+      const poojaList = { allPooja: allPooja }
       res.status(200).json(poojaList);
     } catch (err) {
       console.log(err)

@@ -21,11 +21,11 @@ export default async function handler(
     try {
       const decoded = jwt.verify(xBhaktToken, secret);
       const bhakt = await prisma.bhakt.findFirst({ where: { id: Number(decoded.sub) } });
-      const userDetails = {
+      const bhaktDetails = {
         full_name: bhakt?.full_name,
         email: bhakt?.email
       }
-      res.status(200).json(userDetails);
+      res.status(200).json(bhaktDetails);
     } catch (err) {
       console.log(err)
       if (err instanceof PrismaClientInitializationError) {
