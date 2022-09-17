@@ -18,16 +18,15 @@ const PoojaList = () => {
           'x-bhakt-token': xBhaktToken
         }
       });
-      console.log(response);
+
       const responseJson = await response.json();
-      console.log(responseJson);
 
       if (response.status === 200) {
-        const poojaData = responseJson["allPooja"].map((pooja: { id: number; name: string; imageUrl: string; description: string; }) => (
+        const poojaData = responseJson["allPooja"].map((pooja: { id: number; title: string; imageUrl: string; description: string; }) => (
           <Pooja
             key={pooja.id}
             id={pooja.id}
-            name={pooja.name}
+            name={pooja.title}
             imageUrl={pooja.imageUrl}
             description={pooja.description}
           />

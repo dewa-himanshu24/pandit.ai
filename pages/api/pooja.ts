@@ -1,66 +1,16 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
-import jwt from 'jsonwebtoken'
+import jwt, { JsonWebTokenError } from 'jsonwebtoken'
+import { PrismaClient } from '@prisma/client';
+import { PrismaClientInitializationError } from '@prisma/client/runtime';
 
-const dummyPoojaList = {
-  allPooja: [
-    {
-      id: 1,
-      name: "Daily Aarti",
-      imageUrl: "https://images.tv9hindi.com/wp-content/uploads/2022/05/aarti-rules.jpg?w=360"
 
-    },
-    {
-      id: 2,
-      name: "Radha Krishna Aarti",
-      imageUrl: "https://www.thedivineindia.com/img/shri-radha-ji-ki-aarti.jpg"
-    },
-    {
-      id: 3,
-      name: "Shiv Aarti",
-      imageUrl: "https://i.ytimg.com/vi/MXDTEwxkU_I/maxresdefault.jpg"
-    },
-    {
-      id: 4,
-      name: "Daily Aarti",
-      imageUrl: "https://images.tv9hindi.com/wp-content/uploads/2022/05/aarti-rules.jpg?w=360"
-
-    },
-    {
-      id: 5,
-      name: "Radha Krishna Aarti",
-      imageUrl: "https://www.thedivineindia.com/img/shri-radha-ji-ki-aarti.jpg"
-    },
-    {
-      id: 6,
-      name: "Shiv Aarti",
-      imageUrl: "https://i.ytimg.com/vi/MXDTEwxkU_I/maxresdefault.jpg"
-    },
-    {
-      id: 7,
-      name: "Daily Aarti",
-      imageUrl: "https://images.tv9hindi.com/wp-content/uploads/2022/05/aarti-rules.jpg?w=360"
-
-    },
-    {
-      id: 8,
-      name: "Radha Krishna Aarti",
-      imageUrl: "https://www.thedivineindia.com/img/shri-radha-ji-ki-aarti.jpg"
-    },
-    {
-      id: 9,
-      name: "Shiv Aarti",
-      imageUrl: "https://i.ytimg.com/vi/MXDTEwxkU_I/maxresdefault.jpg"
-    }
-  ]
-}
-
+const prisma = new PrismaClient()
 
 const secret = process.env.APP_AUTH_JWT_SECRET + "";
 
-
 type Data = {
   message?: string,
-  allPooja?: Array<{ id: number; name: string; imageUrl: string }>
+  allPooja?: Array<{ id: number; title: string; imageUrl: string }>
 }
 
 export default async function handler(
@@ -69,13 +19,20 @@ export default async function handler(
 ) {
   if (req.method === 'GET') {
     const xBhaktToken = req.headers['x-bhakt-token'] + "";
-
     try {
       jwt.verify(xBhaktToken, secret);
-      res.status(200).json(dummyPoojaList);
+      const allPooja = await prisma.pooja.findMany({});
+      const poojaList = { allPooja: allPooja }
+      res.status(200).json(poojaList);
     } catch (err) {
-      console.log(err);
-      res.status(401).json({ message: "Error while authentication" })
+      console.log(err)
+      if (err instanceof PrismaClientInitializationError) {
+        res.status(405).json({ message: "Internal error" });
+      } else if (err instanceof JsonWebTokenError) {
+        res.status(401).json({ message: "Authentication Error" });
+      } else {
+        res.status(400).json({ message: "Something went wrong" });
+      }
     }
   }
   else {
