@@ -17,8 +17,9 @@ Actual step that needs to be performed by a bhakt(`User`)
 ## Pooja
 Collection of order `PoojaVidhi`
 ### Attributes
-- title (255, String, non null)
+- title       (255, String, non null)
 - description (10000, String, non null)
+- imageUrl    (string)
 ### Relationship
 - 1 `Pooja` to many `PoojaVidhi`
 

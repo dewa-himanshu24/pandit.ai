@@ -11,8 +11,15 @@ datasource db {
 }
 
 model Bhakt {
-  id      Int      @id @default(autoincrement())
-  email   String   @unique
-  full_name        String @db.VarChar(255)
-  password_hash   String 
+  id               Int      @id @default(autoincrement())
+  email            String   @unique
+  full_name        String   @db.VarChar(255)
+  password_hash    String 
+}
+
+model Pooja {
+  id            Int      @id @default(autoincrement())
+  title         String   @unique
+  description   String   @db.VarChar(1000)
+  imageUrl      String
 }
