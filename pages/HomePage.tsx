@@ -1,6 +1,7 @@
 import { getCookie, hasCookie } from 'cookies-next'
 import { useRouter } from 'next/router'
 import React, { Fragment, useEffect, useState } from 'react'
+import LoadingSpinner from './components/UI/LoadingSpinner'
 
 import Navbar from './Navbar'
 import PoojaList from './PoojaList'
@@ -46,7 +47,7 @@ const HomePage = () => {
     }
   }, []);
 
-  if(loading) return <h1>LOADING....</h1>
+  if (loading) return <LoadingSpinner />
 
   return (
     <Fragment>
