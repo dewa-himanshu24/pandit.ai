@@ -4,6 +4,7 @@ import Navbar from './Navbar'
 import Button from './components/UI/Button'
 import { useRouter } from 'next/router'
 import { hasCookie } from 'cookies-next'
+import LoadingSpinner from './components/UI/LoadingSpinner'
 
 const Register = () => {
   const router = useRouter();
@@ -70,7 +71,7 @@ const Register = () => {
     setEnteredPassword("");
   }
 
-  if (loading) return <h1>LOADING....</h1>
+  if (loading) return <LoadingSpinner />
 
   return (
     <>
